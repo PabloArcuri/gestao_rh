@@ -1,10 +1,11 @@
 from xml.parsers.expat import model
 from django.db import models
+from apps.funcionarios.models import Funcionario
 
 
 class RegistroHoraExtra(models.Model):
     motivo = models.CharField(max_length=100)
-    
+    funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
 
     # class Meta:
     #     verbose_name = _("Registro_hora_extra")

@@ -1,9 +1,12 @@
+from django.urls import reverse
 from django.db import models
+from apps.empresas.models import Empresa
+
 
 
 class Departamento(models.Model):
     nome = models.CharField(max_length=100)
-    
+    empresa = models.ForeignKey(Empresa, on_delete=models.SET_NULL, blank=True, null=True)
 
     # class Meta:
     #     verbose_name = _("departamento")
@@ -13,4 +16,4 @@ class Departamento(models.Model):
         return self.nome
 
     def get_absolute_url(self):
-        return reverse("departamento_detail", kwargs={"pk": self.pk})
+        return reverse("list_departamentos")

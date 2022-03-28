@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+
+    <h2> Confirmar a exclusão de {{ object_list }} </h2>
+    
+    <button type = "submit" class ="btn btn-danger"> Excluir </button>
+</form>
+
+
+{% endblock  %}
